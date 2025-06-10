@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import AnimatedElement from '../common/AnimatedElement';
-import cbspg from '../../assets/bg1.png';
+const cbspg = '../../assets/bg1.png';
 import axios from 'axios';
 
 const HeroSection: React.FC = () => {
