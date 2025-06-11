@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import AnimatedElement from '../common/AnimatedElement';
-const cbspg = '../../assets/bg1.png';
 import axios from 'axios';
+
+const cbspg =
+  'https://lh3.googleusercontent.com/p/AF1QipNzpQtjnPBu9klz6AL2U7Nk4rZJIZbEXbKZvpxC=s1360-w1360-h1020-rw';
 
 const HeroSection: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     loanAmount: '',
-    loanType: ''
+    loanType: '',
   });
 
   const [successMessage, setSuccessMessage] = useState('');
@@ -22,45 +24,52 @@ const HeroSection: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://formspree.io/f/mvgalrar", formData, {
+      const response = await axios.post('https://formspree.io/f/mvgalrar', formData, {
         headers: {
-          'Accept': 'application/json'
-        }
+          Accept: 'application/json',
+        },
       });
 
       if (response.status === 200) {
-        setSuccessMessage("✅ Your enquiry has been submitted successfully!");
+        setSuccessMessage('✅ Your enquiry has been submitted successfully!');
         setFormData({ name: '', phone: '', loanAmount: '', loanType: '' });
 
         setTimeout(() => setSuccessMessage(''), 5000);
       } else {
-        setSuccessMessage("❌ Submission failed. Please try again.");
+        setSuccessMessage('❌ Submission failed. Please try again.');
         setTimeout(() => setSuccessMessage(''), 5000);
       }
     } catch (error) {
       console.error(error);
-      setSuccessMessage("❌ Submission error. Please try again.");
+      setSuccessMessage('❌ Submission error. Please try again.');
       setTimeout(() => setSuccessMessage(''), 5000);
     }
   };
 
   return (
     <section
-      className="pt-24 pb-16 md:pt-28 md:pb-20 lg:pt-32 lg:pb-24 bg-cover bg-center text-white relative overflow-hidden"
-      style={{ backgroundImage: `url(${cbspg})` }}
+      className="relative overflow-hidden text-white bg-center bg-no-repeat bg-cover pt-24 pb-16 md:pt-28 md:pb-20 lg:pt-32 lg:pb-24 min-h-[600px] lg:min-h-[700px]"
+      style={{
+  backgroundImage: `url(${cbspg})`,
+  backgroundSize: '70%', // Zoomed out from 150% default for "cover"
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center center',
+}}
+
     >
       <div className="absolute inset-0 bg-black/70 z-0"></div>
 
       <div className="container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <AnimatedElement>
-            {/* Main H1 - Most important for SEO */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Leading Private Finance Solutions for Business Growth
             </h1>
-            
+
             <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-lg">
-              Welcome to Chetana Business Solutions, providing businesses with financial support across Chennai, Pondicherry, Hyderabad, and Bangalore. Specializing in unsecured business loans with minimal documentation.
+              Welcome to Chetana Business Solutions, providing businesses with financial support
+              across Chennai, Pondicherry, Hyderabad, and Bangalore. Specializing in unsecured
+              business loans with minimal documentation.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -90,12 +99,13 @@ const HeroSection: React.FC = () => {
 
           <AnimatedElement delay={1}>
             <div className="bg-white bg-opacity-90 p-6 rounded-lg shadow-lg">
-              {/* H2 for form section */}
               <h2 className="text-xl font-semibold text-dark mb-4">Quick Loan Enquiry</h2>
 
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                    Full Name
+                  </label>
                   <input
                     type="text"
                     id="name"
@@ -108,7 +118,9 @@ const HeroSection: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                    Phone Number
+                  </label>
                   <input
                     type="tel"
                     id="phone"
@@ -121,7 +133,12 @@ const HeroSection: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="loanAmount" className="block text-sm font-medium text-gray-700 mb-1">Loan Amount (₹)</label>
+                  <label
+                    htmlFor="loanAmount"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Loan Amount (₹)
+                  </label>
                   <input
                     type="text"
                     id="loanAmount"
@@ -134,7 +151,9 @@ const HeroSection: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="loanType" className="block text-sm font-medium text-gray-700 mb-1">Loan Type</label>
+                  <label htmlFor="loanType" className="block text-sm font-medium text-gray-700 mb-1">
+                    Loan Type
+                  </label>
                   <select
                     id="loanType"
                     name="loanType"

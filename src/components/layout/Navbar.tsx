@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
-const logo = '../../assets/logo.png';
+
+const cbspg = "https://lh3.googleusercontent.com/p/AF1QipNzpQtjnPBu9klz6AL2U7Nk4rZJIZbEXbKZvpxC=s1360-w1360-h1020-rw";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,7 +59,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-screen-xl mx-auto px-4 lg:px-8 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2">
           <img
-            src={logo}
+            src={cbspg}
             alt="Chetana Logo"
             className="h-12 md:h-20 w-auto object-contain"
           />
