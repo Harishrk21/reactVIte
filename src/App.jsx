@@ -7,7 +7,8 @@ import LoanPage from './pages/LoanPage';
 import BlogPage from './pages/BlogPage';
 import BlogDetailPage from './pages/BlogDetailPage';
 import ScrollToTop from './components/common/ScrollToTop';
-
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsOfServicePage from './pages/TermsOfServicePage';
 function App() {
 return (
     <Router>
@@ -21,6 +22,8 @@ return (
           <Route path="/loans/:loanType" element={<LoanPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:blogId" element={<BlogDetailPage />} />
+          <Route path="/terms" element={<TermsOfServicePage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         </Routes>
         </main>
       </Layout>

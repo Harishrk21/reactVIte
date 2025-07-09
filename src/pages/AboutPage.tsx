@@ -3,6 +3,8 @@ import { Calendar, DollarSign, TrendingUp, Users, Linkedin } from 'lucide-react'
 import SectionTitle from '../components/common/SectionTitle';
 import AnimatedElement from '../components/common/AnimatedElement';
 import pradeepImage from '../assets/pradeep.jpg';
+import { Helmet } from 'react-helmet';
+
 
 const AboutPage: React.FC = () => {
   const leadershipTeam = [
@@ -17,6 +19,24 @@ const AboutPage: React.FC = () => {
   ];
 
   return (
+    <>
+    <Helmet>
+  <title>About Chetana Business Solutions | Trusted Financial Partner Since 2010</title>
+  <meta
+    name="description"
+    content="Learn about Chetana Business Solutions, India's leading financial service provider empowering businesses with loans and financial solutions since 2010. Discover our mission, vision, journey, and leadership."
+  />
+  <meta
+    name="keywords"
+    content="Chetana Business Solutions, Business Loans India, Financial Services, MSME Loans, Loan Disbursal, Chennai Financial Partner, Pradeep Babu T, CBS Groups, Business Development Loans"
+  />
+  <meta name="author" content="Chetana Business Solutions" />
+  <meta property="og:title" content="About Chetana Business Solutions" />
+  <meta property="og:description" content="Trusted Financial Partner empowering businesses with loans and support since 2010." />
+  <meta property="og:url" content="https://www.cbsgroups.in/about" />
+  <meta property="og:type" content="website" />
+</Helmet>
+
     <div className="pt-20">
       {/* Hero Section */}
       <section className="py-16 md:py-20 bg-primary text-white">
@@ -236,6 +256,8 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
+
   );
 };
 
